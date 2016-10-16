@@ -1,0 +1,80 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html" async>
+<link rel="import" href="../iron-icons/iron-icons.html" async>
+
+<dom-module id="clipboard-button">
+  <template>
+    <style>
+      :host, *, *::before, *::after {
+        box-sizing: border-box;
+        -moz-osx-font-smoothing: grayscale;
+         -webkit-font-smoothing: antialiased;
+                 font-smoothing: antialiased;
+      }
+
+      :host {
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .icon {
+        --iron-icon-width: 1em;
+        --iron-icon-height: 1em;
+        color: inherit;
+      }
+    </style>
+
+    <iron-icon class="icon" icon="[[icon]]"></iron-icon>
+
+  </template>
+
+  <script>
+    import clipboard from 'clipboard-js';
+
+    class ClipboardButton {
+      beforeRegister() {
+        this.is = 'clipboard-button',
+
+        this.properties = {
+
+          content: String,
+
+          element: Object,
+
+          icon: {
+            type: String,
+            value: 'icons:content-copy'
+          }
+
+        };
+
+        this.listeners = {
+          'tap': 'copy'
+        }
+      }
+
+      copy() {
+        let content = this.content,
+            element = this.element,
+            body;
+
+        if (content) {
+          body = { 'text/html': content };
+        } else if (element) {
+          body = element;
+        }
+
+        if (!body) {
+          console.warn('No content or element to copy specified')
+        }
+
+        clipboard.copy(body).then(
+          () => this.fire('copied'),
+          (error) => console.error(error)
+        );
+      }
+
+    };
+    Polymer(ClipboardButton)
+  </script>
+</dom-module>

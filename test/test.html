@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>clipboard-button</title>
+    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+
+    <!-- Import the element to test -->
+    <link rel="import" href="../clipboard-button.html">
+
+    <!-- Setup fixtures -->
+    <script>
+      (function() {
+        window.fixtures = window.fixtures || {};
+        window.fixtures['clipboard-button'] = {
+        };
+      })();
+    </script>
+
+  </head>
+  <body>
+    <test-fixture id="default">
+      <template>
+        <clipboard-button></clipboard-button>
+      </template>
+    </test-fixture>
+    <script>
+      describe('<clipboard-button>', function() {
+
+        var component,
+            componentFixtures;
+
+        componentFixtures = window.fixtures;
+
+        beforeEach(function() {
+          component = fixture('default');
+        });
+
+        it('is okay', function() {
+          expect(component).to.be.ok;
+        });
+
+      });
+    </script>
+  </body>
+</html>

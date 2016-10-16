@@ -1,0 +1,31 @@
+{
+  "name": "clipboard-button",
+  "version": "0.0.0",
+  "authors": [
+    "Sean King <sean@seanking.org>"
+  ],
+  "description": "Button that cuts/copies text to the user&#39;s clipboard",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "clipboard-button"
+  ],
+  "main": "clipboard-button.html",
+  "license": "MIT",
+  "homepage": "https://github.com/seaneking/clipboard-button/",
+  "ignore": [
+    "*",
+    "!*.html",
+    "!LICENSE"
+  ],
+  "dependencies": {
+    "polymer": "^1.6.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.1.3",
+    "iron-icon": "PolymerElements/iron-icon#^1.0.11"
+  },
+  "devDependencies": {
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "^0.7.14"
+  }
+}
