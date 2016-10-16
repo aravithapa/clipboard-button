@@ -1,6 +1,6 @@
 {
   "name": "clipboard-button",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Button that cuts/copies text to the user's clipboard",
   "main": "clipboard-button.html",
   "scripts": {
