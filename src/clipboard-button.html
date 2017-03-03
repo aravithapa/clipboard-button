@@ -56,21 +56,14 @@
       }
 
       copy() {
-        let content = this.content,
-            element = this.element,
-            body;
+        let { content, element } = this;
 
-        if (content) {
-          body = { 'text/html': content };
-        } else if (element) {
-          body = element;
-        }
-
-        if (!body) {
+        if (!content && !element) {
           console.warn('No content or element to copy specified')
+          return;
         }
 
-        clipboard.copy(body).then(
+        clipboard.copy(content || element).then(
           () => this.fire('copied'),
           (error) => console.error(error)
         );
